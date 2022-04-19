@@ -15,6 +15,7 @@ services:
     tty: true
     depends_on:
       - db
+
   nginx:
     build:
       context: ./nginx
@@ -23,6 +24,8 @@ services:
       - node-network
     ports:
       - "8080:8080"
+    depends_on:
+      - app
 
   db:
     build:
